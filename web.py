@@ -68,7 +68,6 @@ with st.echo(code_location='below'):
     year = 2022
     type_1 = types[types['МО'] == med].iloc[0][ 'Вид учреждения']
     type_2 = types[types['МО'] == med].iloc[0][ 'Тип учреждения']
-    n_device = types[types['МО'] == med].iloc[0]['Количество аппаратов']
 
     month_vals = [2, 3]
     month = st.multiselect('Номер месяца для прогнозирования', month_vals, default=month_vals[0], key='month')
@@ -78,7 +77,7 @@ with st.echo(code_location='below'):
     days = []
     shifts = []
     
-
+    devices = []
     for m in month:
         researchs.append(st.number_input(f'Введите планируемое количество исследований в {m} месяце 2022 года', 
                                         min_value=0, 
@@ -100,10 +99,15 @@ with st.echo(code_location='below'):
                                         step=1, 
                                         key='shift')
                         )
+        devices.append(st.number_input(f'Введите планируемое количество используемых аппаратов в {m} месяце 2022 года', 
+                                        min_value=0, 
+                                        max_value=None, 
+                                        step=1, 
+                                        key='device')
+                        )
 
     len_X = len(month)
     med = [med] * len_X
-    devices = [n_device] * len_X
     year = [year] * len_X
     type_1 = [type_1] * len_X
     type_2 = [type_2] * len_X
