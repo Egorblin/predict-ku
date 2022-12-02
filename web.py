@@ -83,27 +83,27 @@ with st.echo(code_location='below'):
                                         min_value=0, 
                                         max_value=None, 
                                         step=1, 
-                                        key='research')
+                                        key=f'research_{m}')
                         )
 
         days.append(st.number_input(f'Введите планируемое количество отработанных дней в {m} месяце 2022 года', 
                                         min_value=0, 
                                         max_value=None, 
                                         step=1, 
-                                        key='days')
+                                        key=f'days_{m}')
                         )
 
         shifts.append(st.number_input(f'Введите планируемое количество отработанных смен в {m} месяце 2022 года', 
                                         min_value=0, 
                                         max_value=None, 
                                         step=1, 
-                                        key='shift')
+                                        key=f'shift_{m}')
                         )
         devices.append(st.number_input(f'Введите планируемое количество используемых аппаратов в {m} месяце 2022 года', 
                                         min_value=0, 
                                         max_value=None, 
                                         step=1, 
-                                        key='device')
+                                        key=f'device_{m}')
                         )
 
     len_X = len(month)
